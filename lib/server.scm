@@ -22,7 +22,7 @@
 (define (lys:open-socket-for-listening port) (let (
   (s (socket PF_INET SOCK_STREAM 0)))
   (setsockopt s SOL_SOCKET SO_REUSEADDR 1)
-  (bind s AF_INET INADDR_ANY port)
+  (bind s AF_INET INADDR_LOOPBACK port)
   (listen s 5) ; Queue size of 5
   s))
 
